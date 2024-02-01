@@ -1,0 +1,22 @@
+<header class="p-3 bg-dark text-white">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a routerLink="games" class="head d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <h2>IGDB</h2>
+      </a>
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a routerLink="games" routerLinkActive="btn-secondary" class="nav-link px-2">Games</a></li>
+        <li><a routerLink="studios" routerLinkActive="btn-secondary" class="nav-link px-2">Studios</a></li>
+        <li><a routerLink="consoles" routerLinkActive="btn-secondary" class="nav-link px-2">Consoles</a></li>
+        <li><a routerLink="about" routerLinkActive="btn-secondary" class="nav-link px-2">About</a></li>
+      </ul>
+      
+      <div class="text-end">
+        <a *ngIf="user == null" type="button" class="btn btn-outline-light me-2" routerLink="/login">Login</a>
+        <a *ngIf="user == null" type="button" class="btn btn-warning" routerLink="/register">Register</a>
+        <button *ngIf="user != null" type="button" class="btn btn-secondary" (click)="logout()">log out</button>
+      </div>
+
+    </div>
+  </div>
+</header>

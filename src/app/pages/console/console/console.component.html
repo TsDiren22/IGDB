@@ -1,0 +1,80 @@
+<div class="consoles">
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div *ngFor="let c of consoles">
+          <div class="col">
+            <div class="card shadow-sm">
+              <img
+                src="../../../../assets/nintendo-consoles-background.jpg"
+                class="card-img-top"
+                width="100%"
+                height="225"
+                role="img"
+                aria-label="Placeholder: Thumbnail"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+                alt="Image consoles"
+              />
+              <div class="card-body">
+                <p class="card-text" style="font-weight: bold">{{ c.name }}</p>
+                <p class="card-text">{{ c.website }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a
+                      [title]="c.name + ' details'"
+                      [routerLink]="['details', c._id]"
+                      class="btn btn-sm btn-outline-primary"
+                      >View</a
+                    >
+                    <a
+                      *ngIf="allowedClick(c.user)"
+                      [routerLink]="['edit', c._id]"
+                      class="btn btn-sm btn-outline-secondary"
+                      >Edit</a
+                    >
+                    <button
+                      *ngIf="allowedClick(c.user)"
+                      (click)="onDelete(c._id!)"
+                      class="btn btn-sm btn-outline-danger"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a routerLink="add">
+          <div class="col">
+            <div class="card shadow-sm btn btn-sm btn-outline-secondary">
+              <svg
+                class="card-img-top"
+                width="100%"
+                height="225"
+                role="img"
+                aria-label="Placeholder: Thumbnail"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+              >
+                <title>Add Game</title>
+                <rect width="100%" height="100%" fill="#55595c"></rect>
+                <text class="plus" x="20%" y="50%" fill="#eceeef" dy=".3em">
+                  +
+                </text>
+              </svg>
+              <div class="card-body">
+                Add new console
+                <div
+                  class="d-flex justify-content-between align-items-center"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

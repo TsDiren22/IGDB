@@ -1,0 +1,19 @@
+<div class="container">
+    <div *ngIf="c">
+      <p style="font-size: 50px; font-weight: bold;">{{c.name}}</p>
+        <table style="width:100%" class="detailTable">
+            <tr>
+              <th>Amount of users:</th>
+              <td>{{c.amountOfUser}}</td>
+            </tr>
+            <tr>
+              <th>Founded on:</th>
+              <td>{{c.dateOfRelease | date: 'dd/MM/yyyy'}}</td>
+            </tr>
+            <tr>
+              <th>Website:</th>
+              <td><a [href]="c.website" target="_blank">{{c.website}}</a></td>
+            </tr>
+          </table>
+    </div>
+</div>

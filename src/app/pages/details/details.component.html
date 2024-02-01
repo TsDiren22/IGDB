@@ -1,0 +1,30 @@
+<div class="container">
+    <div *ngIf="game">
+      <p style="font-size: 50px; font-weight: bold;">{{game.title}}</p>
+        <table style="width:100%" class="detailTable">
+            <tr>
+              <th>Description:</th>
+              <td>{{game.description}}</td>
+            </tr>
+            <tr>
+              <th>Genre:</th>
+              <td>{{game.genre}}</td>
+            </tr>
+            <tr>
+                <th>Release Date:</th>
+                <td>{{game.releaseDate}}</td>
+              </tr>
+              <tr>
+                <th>Studio:</th>
+                <td>{{game.studio!.name}}</td>
+              </tr>
+              <tr>
+                <th>Consoles:</th>
+              </tr>
+                <tr *ngFor="let g of game.console">
+                  <th> </th>
+                  <td>{{g.name}}</td>
+                </tr>
+          </table>
+    </div>
+</div>

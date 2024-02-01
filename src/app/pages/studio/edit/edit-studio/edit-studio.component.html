@@ -1,0 +1,58 @@
+<div class="containermt-5">
+    <h2>{{ header }}</h2>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div>
+            <span *ngIf="name.invalid && (name.dirty || name.touched)" class="help-block text-danger">
+                <div *ngIf="name.errors?.['required']">Name is required.</div>
+                <div *ngIf="name.errors?.['minlength']">Name must be at least 3 characters long.</div>
+            </span>
+            <span *ngIf="address.invalid && (address.dirty || address.touched)" class="help-block text-danger">
+                <div *ngIf="address.errors?.['required']">Address is required.</div>
+            </span>
+            <span *ngIf="founder.invalid && (founder.dirty || founder.touched)" class="help-block text-danger">
+                <div *ngIf="address.errors?.['required']">Founder is required.</div>
+            </span>
+            <span *ngIf="website.invalid && (website.dirty || website.touched)" class="help-block text-danger">
+                <div *ngIf="website.errors?.['required']">Website is required.</div>
+            </span>
+            <span *ngIf="employees.invalid && (employees.dirty || employees.touched)" class="help-block text-danger">
+                <div *ngIf="employees.errors?.['required']">Amount of employees is required.</div>
+                <div *ngIf="employees.errors?.['min']">At least 1 employee is needed.</div>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="">Name:</label>
+            <input type="text" class="form-control" [ngModel]="studio.name" name="name" required minlength="3" #name = "ngModel">
+        </div>
+        <div class="form-group">
+            <label for="">Address:</label>
+            <input type="text" class="form-control" [ngModel]="studio.address" name="address" required #address= "ngModel">
+        </div>
+
+        <div class="form-group">
+            <label for="">Founder:</label>
+            <input class="form-control" [ngModel]="studio.founder" name="founder" required #founder = "ngModel">
+        </div>
+
+        <div class="form-group">
+            <label for="">Founded:</label>
+            <input type="date" class="form-control" [ngModel]="studio.dateFounded | date: 'yyyy-MM-dd'" name="dateFounded" required>
+        </div>
+
+        <div class="form-group">
+            <label for="">Website:</label>
+            <input class="form-control" [ngModel]="studio.website" name="website" required #website = "ngModel">
+        </div>
+
+        <div class="form-group">
+            <label for="">Amount of employees:</label>
+            <input type="number" class="form-control" [ngModel]="studio.amountOfEmployees" name="amountOfEmployees" required [min]="1" #employees = "ngModel">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Save</button>
+            <a *ngIf="getId()" class="btn btn-secondary" routerLink="../..">Cancel</a>
+            <a *ngIf="!getId()" class="btn btn-secondary" routerLink="..">Cancel</a>
+        </div>
+    </form>
+</div>

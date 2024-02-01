@@ -1,0 +1,33 @@
+<div class="containermt-5">
+    <h2>Register</h2>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <span>
+            <div class="text-danger">{{error}}</div>
+          </span>
+      <div class="form-group">
+        <label for="">First Name:</label>
+        <input type="text" class="form-control" [ngModel]="user.firstName" name="firstName" required #name = "ngModel">
+    </div>
+    <div class="form-group">
+        <label for="">Last Name:</label>
+        <input type="text" class="form-control" [ngModel]="user.lastName" name="lastName" required #address= "ngModel">
+    </div>
+  
+    <div class="form-group">
+        <label for="">Email:</label>
+        <span>
+            <div *ngIf="!emailIsValid && curEmail.length > 0" class="text-danger">Please enter a valid email address.</div>
+        </span>
+        <input class="form-control" [ngModel]="user.email" name="email" (ngModelChange)="validEmail($event)" required #founder = "ngModel">
+    </div>
+  
+    <div class="form-group">
+        <label for="">Password:</label>
+        <input type="password" class="form-control" [ngModel]="user.password" name="password" required>
+    </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" [disabled]="f.invalid || !emailIsValid">Register</button>
+              <a class="btn btn-secondary" routerLink="../">Cancel</a>
+          </div>
+    </form>
+</div>

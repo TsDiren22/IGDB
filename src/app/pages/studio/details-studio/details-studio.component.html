@@ -1,0 +1,27 @@
+<div class="container">
+    <div *ngIf="studio">
+      <p style="font-size: 50px; font-weight: bold;">{{studio.name}}</p>
+        <table style="width:100%" class="detailTable">
+            <tr>
+              <th>Address:</th>
+              <td>{{studio.address}}</td>
+            </tr>
+            <tr>
+              <th>Founder:</th>
+              <td>{{studio.founder}}</td>
+            </tr>
+            <tr>
+                <th>Amount of Employees:</th>
+                <td>{{studio.amountOfEmployees}}</td>
+            </tr>
+            <tr>
+              <th>Founded on:</th>
+              <td>{{studio.dateFounded | date: 'dd/MM/yyyy'}}</td>
+            </tr>
+            <tr>
+              <th>Website:</th>
+              <td><a [href]="studio.website" target="_blank">{{studio.website}}</a></td>
+            </tr>
+          </table>
+    </div>
+</div>
